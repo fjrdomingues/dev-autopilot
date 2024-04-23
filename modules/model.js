@@ -4,13 +4,13 @@ const { OpenAI } = require('langchain/llms');
  * 
  * Returns an instance of the specified language model.
  * @param {string} modelType - The type of language model to return. 
-   * Currently Supported ['gpt-3.5-turbo', 'gpt-4'].
+   * Currently Supported ['gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo'].
  * @returns {Object} - An instance of the specified language model.
  * @throws {Error} if the input model type is not supported
  */
 function getModel(modelType){
     let model
-    if (['gpt-3.5-turbo', 'gpt-4'].includes(modelType)) {
+    if (['gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo'].includes(modelType)) {
         model = new OpenAI({ 
             modelName: modelType,
             maxTokens: parseInt(process.env.OPENAI_MAX_TOKEN_REPLY),
